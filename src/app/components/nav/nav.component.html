@@ -1,0 +1,23 @@
+<nav class="w-100 navbartop p-1">
+  <div class="container  w-100 d-flex align-items-center justify-content-between">
+    <span>
+      Shop
+    </span>
+    <div class="linkContainer">
+        <ul class="m-0 p-0 list-inline">
+            <!-- <li class="list-inline-item" *ngIf="!userLoggedIn">
+              <a routerLink="login">Login</a>
+            </li> -->
+            
+            <li class="list-inline-item">
+              <a [routerLink]="['/about']">About Us</a>
+            </li>
+            <li class="list-inline-item">{{currentUser?.email}}</li>
+            <li class="list-inline-item" *ngIf="userLoggedIn">
+              <button class="btn btn-info" (click)="logout()">Logout</button>
+            </li>
+          </ul>
+    </div>
+  </div>
+
+</nav>

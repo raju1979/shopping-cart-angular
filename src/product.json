@@ -1,0 +1,24 @@
+{
+	"productid":"xncjdj8hjd",
+	"title":"Roadster shoes",
+	"brand":"Roadster",
+	"size":[7,8],
+	"details":"new shoes",
+	"instruction":"...",
+	"gender":"male",
+	"category":"casual",
+	"color":"red",
+	"price":"200"
+},
+{
+	"productid":"xncjdjh6jd",
+	"title":"Red Tape shoes",
+	"brand":"Red Tape",
+	"size":[6,8],
+	"details":"new shoes",
+	"instruction":"...",
+	"gender":"male",
+	"category":"casual",
+	"color":"blue",
+	"price":"220"
+}
