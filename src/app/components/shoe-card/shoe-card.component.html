@@ -1,8 +1,11 @@
-<img class="card-img-top w-75 shoesImg pt-2" [src]="product.picture" alt="Card image cap">
+<div class="imgContainer d-flex justify-content-center align-items-center">
+    <img class="card-img-top w-50 shoesImg" [src]="product.picture" alt="Card image cap">
+</div>
 <div class="card-block p-3">
-  <h4 class="card-title">{{product.brand}}</h4>
-  <h5 class="ctext-muted">{{product.title}}</h5>
+  <h5 class="card-title">{{product.brand}}</h5>
+  <h6 class="ctext-muted">{{product.title}}</h6>
   <p class="card-text">{{product.details | truncate: 20}}</p>
   <p class="card-text">{{product.price | currency:"INR":true}}</p>
-  <div  class="btn btn-primary" (click)="addToCart(product)">Add to Cart</div>
+  <div  class="btn btn-primary align-self-end" (click)="addToCart(product)">Add to Cart</div>
 </div>
+
