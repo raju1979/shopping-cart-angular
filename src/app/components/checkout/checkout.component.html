@@ -1,0 +1,39 @@
+  <div class="row">
+    <h4>Shopping Cart</h4>
+  </div>
+  <hr>
+<div class="row">
+
+  <div class="col-md-8">
+    <div class="row mb-4 pb-2 productRow" *ngFor="let product of cart">
+      <div class="col-md-2">
+        <img [src]="product.picture" alt="" class="productImg">
+      </div>
+      <div class="col-md-8">
+        <p class="text-primary h4 mb-2">{{product.title}}</p>
+        <p class="text-muted">{{product.details}}</p>
+        <small class="mr-4">Sold By <span class="text-primary">{{product.brand}}</span></small>
+        <button class="btn btn-sm btn-outline-info" (click)="removeProduct(product)">Remove</button>
+      </div>
+      <div class="col-md-2">
+          <span class="text-danger">{{product.price | currency : "INR" : true}}</span>
+        </div>
+    </div>
+    
+  </div>
+  <div class="col-md-4">
+      <div class="card text-center">
+          <div class="card-header text-info">
+            Total {{cart.length}} items
+          </div>
+          <div class="card-block">
+            <p [innerHTML]="getTotal()"></p>
+          </div>
+          <div class="card-footer text-muted">
+            <button class="btn btn-primary">Pay Now</button>
+          </div>
+        </div>
+    
+  </div>
+
+</div>

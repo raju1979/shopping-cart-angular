@@ -17,12 +17,15 @@ import { CartAreaComponent } from './components/cart-area/cart-area.component';
 import { CartSideComponent } from './components/cart-side/cart-side.component';
 import { TruncatePipe } from './pipes/truncate.pipe';
 import { ArrayFilterPipe } from './pipes/array-filter.pipe';
+import { ShoeCardComponent } from './components/shoe-card/shoe-card.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 
 const appRoute:Routes = [
   {path:'',component:LoginComponent},
   {path:'about',component:AboutComponent},
   {path:'cart',component:CartAreaComponent},
+  {path:'checkout',component:CheckoutComponent},
   {path:'login',redirectTo:''}
 ]
 
@@ -36,7 +39,9 @@ const appRoute:Routes = [
     CartAreaComponent,
     CartSideComponent,
     TruncatePipe,
-    ArrayFilterPipe
+    ArrayFilterPipe,
+    ShoeCardComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

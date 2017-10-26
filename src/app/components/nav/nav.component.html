@@ -1,22 +1,26 @@
 <nav class="w-100 navbartop p-1">
   <div class="container  w-100 d-flex align-items-center justify-content-between">
     <span>
-      Shop
+      <img src="assets/img/cart.png" alt="" class="logoImg" />
     </span>
     <div class="linkContainer">
-        <ul class="m-0 p-0 list-inline">
-            <!-- <li class="list-inline-item" *ngIf="!userLoggedIn">
+      <ul class="m-0 p-0 list-inline">
+        <!-- <li class="list-inline-item" *ngIf="!userLoggedIn">
               <a routerLink="login">Login</a>
             </li> -->
-            
-            <li class="list-inline-item">
-              <a [routerLink]="['/about']">About Us</a>
-            </li>
-            <li class="list-inline-item">{{currentUser?.email}}</li>
-            <li class="list-inline-item" *ngIf="userLoggedIn">
-              <button class="btn btn-info" (click)="logout()">Logout</button>
-            </li>
-          </ul>
+
+        <li class="list-inline-item">
+          <a [routerLink]="['/about']">About Us</a>
+        </li>
+        <li class="list-inline-item">{{currentUser?.email}}</li>
+        <li class="list-inline-item" *ngIf="userLoggedIn">
+          <button class="btn btn-info" (click)="logout()">Logout</button>
+        </li>
+        <li class="list-inline-item" *ngIf="userLoggedIn && cart.length > 0">
+          <button class="btn btn-warning" (click)="checkout()">{{cart?.length}}</button>
+          <!-- <div class="roundBtn"></div> -->
+        </li>
+      </ul>
     </div>
   </div>
 

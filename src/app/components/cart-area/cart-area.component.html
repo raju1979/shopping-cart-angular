@@ -9,23 +9,16 @@
       </div>
       <div class="col-md-6">
         <div class="btn-group btn-group-sm pull-right" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-secondary" (click)="setGender('male')">Male</button>
-          <button type="button" class="btn btn-secondary"  (click)="setGender('female')">Female</button>
+          <button type="button" class="btn btn-primary" [class.disabled]="gender != 'Male'" (click)="setGender('Male',$event)" data-gender="Male">Male</button>
+          <button type="button" class="btn btn-primary" [class.disabled]="gender != 'Female'" (click)="setGender('Female',$event)" data-gender="Female">Female</button>
         </div>
       </div>
 
 
     </div>
     <div class="row">
-      <div class="card m-2" style="width: 10rem;" *ngFor="let product of productsInSelectedCategory | arrayFilter : gender">
-        <img class="card-img-top" [src]="product.picture" alt="Card image cap">
-        <div class="card-block p-3">
-          <h4 class="card-title">{{product.brand}}</h4>
-          <h5 class="ctext-muted">{{product.title}}</h5>
-          <p class="card-text">{{product.details | truncate: 20}}</p>
-          <p class="card-text">{{product.price | currency:"INR":true}}</p>
-          <a href="#" class="btn btn-primary">Add to Cart</a>
-        </div>
+      <div class="card m-2" style="width: 15rem;" *ngFor="let product of productsInSelectedCategory | arrayFilter : gender">
+        <shoe-card [product]="product" (change)="productAdded($event)"></shoe-card>
       </div>
     </div>
   </div>

@@ -1,0 +1,9 @@
+.productImg{
+    max-height: 100px;
+    max-width: 100px;
+}
+
+.productRow{
+    box-sizing: border-box;
+    border-bottom: 1px solid #efefef;
+}
