@@ -1,0 +1,10 @@
+#rootContainer{
+    width: 100%;
+    height: 100%;
+
+    background: #c6dbe7;    
+    overflow: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}

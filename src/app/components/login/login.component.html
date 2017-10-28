@@ -1,49 +1,50 @@
 <div class="container">
 
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
 
-        <div class="card">
-            <h3 class="card-header text-center">Login</h3>
-            <div class="card-block p-2 bg-muted">
-              <form #f="ngForm" (ngSubmit)="onSubmit(f.valid,f.value)">
-                <div class="form-group row">
-                  <label for="lgFormGroupInput" class="col-sm-4 col-form-label col-form-label-lg">Email</label>
-                  <div class="col-sm-8">
-                    <input type="email" class="form-control form-control-lg" id="lgFormGroupInput" placeholder="Email" name="email" ngModel
-                      #email="ngModel" required>
-                    <div class="text-warning" *ngIf="email.errors && (email.dirty || email.touched || f.submitted)">
-                      <p *ngIf="email.errors.required">
-                        The Email is required
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="lgFormGroupInput" class="col-sm-4 col-form-label col-form-label-lg">Password</label>
-                  <div class="col-sm-8">
-                    <input type="password" class="form-control form-control-lg" id="lgFormGroupInput" placeholder="password" name="password" ngModel
-                      #password="ngModel" required>
-                    <div class="text-warning" *ngIf="password.errors && (password.dirty || password.touched || f.submitted)">
-                      <p *ngIf="link.errors.required">
-                        The password is required
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-sm-12 text-right">
-                    <input class="btn btn-danger" type="submit" value="submit" [disabled]="!f.valid" />
-                  </div>
-    
-                </div>
-              </form>
+  <!-- Form-->
+  <div class="form">
+    <div class="form-toggle"></div>
+    <div class="form-panel one">
+      <div class="form-header">
+        <h1>Account Login</h1>
+      </div>
+      <div class="form-content">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f.valid,f.value)">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" ngModel #email="ngModel" required/>
+            <div class="text-warning" *ngIf="email.errors && (email.dirty || email.touched || f.submitted)">
+              <p *ngIf="email.errors.required">
+                The Email is required
+              </p>
             </div>
           </div>
-
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" #password="ngModel" ngModel required/>
+            <div class="text-warning" *ngIf="password.errors && (password.dirty || password.touched || f.submitted)">
+              <p *ngIf="password.errors.required">
+                The password is required
+              </p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-remember">
+              <input type="checkbox" />Remember Me
+            </label>
+            <a class="form-recovery" href="#">Forgot Password?</a>
+          </div>
+          <div class="form-group">
+            <button type="submit" [disabled]="!f.valid">Submit</button>
+          </div>
+          <div class="form-group">
+            <a [routerLink]="['/register']">Register</a>
+            <a [routerLink]="['/verify']" class="pull-right text-info">Verify Email</a>
+          </div>
+        </form>
+      </div>
     </div>
+
   </div>
-
-
 
 </div>

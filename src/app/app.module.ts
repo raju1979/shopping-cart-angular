@@ -6,6 +6,7 @@ import { Router, RouterModule, Routes } from '@angular/router';
 import { HttpModule }    from '@angular/http';
 
 import {Ng2Webstorage} from 'ngx-webstorage';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -19,6 +20,9 @@ import { TruncatePipe } from './pipes/truncate.pipe';
 import { ArrayFilterPipe } from './pipes/array-filter.pipe';
 import { ShoeCardComponent } from './components/shoe-card/shoe-card.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { RegisterComponent } from './components/register/register.component';
+import { EqualValidator } from './directives/equal-validator.directive';
+import { VerifyUserComponent } from './components/verify-user/verify-user.component';
 
 
 const appRoute:Routes = [
@@ -26,6 +30,8 @@ const appRoute:Routes = [
   {path:'about',component:AboutComponent},
   {path:'cart',component:CartAreaComponent},
   {path:'checkout',component:CheckoutComponent},
+  {path:'register',component:RegisterComponent},
+  {path:'verify',component:VerifyUserComponent},
   {path:'login',redirectTo:''}
 ]
 
@@ -41,7 +47,10 @@ const appRoute:Routes = [
     TruncatePipe,
     ArrayFilterPipe,
     ShoeCardComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    RegisterComponent,
+    EqualValidator,
+    VerifyUserComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +58,8 @@ const appRoute:Routes = [
     FormsModule,
     ReactiveFormsModule,
     Ng2Webstorage,
-    HttpModule
+    HttpModule,
+    FlashMessagesModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

@@ -1,3 +1,7 @@
+:host{
+    height: 50px;
+}
+
 .navbartop{
     min-height: 50px;
     background: #e57373;

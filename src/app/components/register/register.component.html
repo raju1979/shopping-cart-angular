@@ -1,0 +1,66 @@
+<div id="registerContainer">
+  <div class="card card-2 p-4">
+    <div class="h4 text-center text-primary">Register</div>
+
+    <form #f="ngForm" ngSubmit = "f.valid && onSubmit(f.value)">
+
+      <div class="group">
+        <input type="text" #name="ngModel" ngModel name="name" required minlength=5>
+        <span class="highlight">
+          <i class="fa fa-exclamation-circle text-danger" *ngIf="name.errors && (name.dirty || name.touched || f.submitted)"></i>
+        </span>
+        <div *ngIf="name.errors && (name.dirty || name.touched || f.submitted)">
+          <small class="text-danger"  *ngIf="email.errors.required">Name is required</small> 
+        </div>
+        <span class="bar"></span>
+        <label>Name</label>
+      </div>
+
+      <div class="group">
+        <input type="text" #email="ngModel" ngModel name="email" required minlength=5>
+        <span class="highlight">
+          <i class="fa fa-exclamation-circle text-danger" *ngIf="email.errors && (email.dirty || email.touched || f.submitted)"></i>
+        </span>
+        <div *ngIf="email.errors && (email.dirty || email.touched || f.submitted)">
+          <small class="text-danger"  *ngIf="email.errors.required">Email is required</small> 
+        </div>
+        <span class="bar"></span>
+        <label>Email</label>
+      </div>
+
+      <div class="group">
+        <input type="password" #password="ngModel" ngModel name="password" required minlength=5 validateEqual="confirmPassword" reverse="true">
+        <span class="highlight">
+          <i class="fa fa-exclamation-circle text-danger" *ngIf="password.errors && (password.dirty || password.touched || f.submitted)"></i>
+        </span>
+        <div *ngIf="password.errors && (password.dirty || password.touched || f.submitted)">
+            <small class="text-danger"  *ngIf="password.errors.required">Password is required</small> 
+            <small class="text-danger"  *ngIf="password.errors.minlength">Minimum 5 characters required</small> 
+        </div>
+        <span class="bar"></span>
+        <label>Password</label>
+      </div>
+
+      <div class="group">
+        <input type="password" #conpassword="ngModel" ngModel name="conpassword" validateEqual="password" required minlength=5>
+        <span class="highlight">
+          <i class="fa fa-exclamation-circle text-danger" *ngIf="conpassword.errors && (conpassword.dirty || conpassword.touched || f.submitted)"></i>
+        </span>
+        <div *ngIf="conpassword.errors && (conpassword.dirty || conpassword.touched || f.submitted)">
+          <small class="text-danger"  *ngIf="conpassword.errors.required">Password is required</small> 
+          <small class="text-danger"  *ngIf="!conpassword.errors.validateEqual">Password not matched</small> 
+        </div>
+        
+        <span class="bar"></span>
+        <label>Confirm Password</label>
+      </div>
+
+      <div class="group">
+        <button class="btn btn-info pull-right" type="submit" [disabled]='!f.valid' (click) = "onSubmit(f.value)">Submit</button>
+      </div>
+
+    </form>
+
+
+  </div>
+</div>
